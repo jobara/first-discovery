@@ -85,6 +85,15 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
                     "message": "%prefix/showSounds.json"
                 }
             },
+            "autoPilot": {
+                "type": "gpii.firstDiscovery.autoPilot",
+                "panel": {
+                    "type": "gpii.firstDiscovery.panel.autoPilot",
+                    "container": ".gpiic-fd-prefsEditor-panel-autoPilot",
+                    "template": "%prefix/yesNo.html",
+                    "message": "%prefix/autoPilot.json"
+                }
+            },
             "congratulations": {
                 "type": "gpii.firstDiscovery.congratulations",
                 "panel": {
@@ -184,6 +193,16 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             "gpii.firstDiscovery.stickyKeys": {
                 "type": "boolean",
                 "default": false
+            }
+        }
+    });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.autoPilot", {
+        gradeNames: ["autoInit", "fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.autoPilot": {
+                "type": "boolean",
+                "default": true
             }
         }
     });

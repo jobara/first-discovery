@@ -544,6 +544,18 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
     });
 
     /*
+     * Auto-pilot panel
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.autoPilot", {
+        gradeNames: ["gpii.firstDiscovery.panel.yesNo", "autoInit"],
+        preferenceMap: {
+            "gpii.firstDiscovery.autoPilot": {
+                "model.value": "default"
+            }
+        }
+    });
+
+    /*
      * language panel
      */
     fluid.defaults("gpii.firstDiscovery.panel.lang", {

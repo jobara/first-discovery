@@ -1,0 +1,10 @@
+{
+    "instructions": "Do you want the car to drive itself?",
+    "no": "No",
+    "yes": "Yes",
+
+    "yes-tooltip": "Select to turn on auto-pilot",
+    "no-tooltip": "Select to turn off auto-pilot",
+    "yes-tooltipAtSelect": "Auto-pilot is on",
+    "no-tooltipAtSelect": "Auto-pilot is off"
+}
