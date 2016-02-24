@@ -258,10 +258,25 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                 container: "{that}.container",
                 options: {
                     messageBase: "{keyboard}.options.messageBase",
-                    model: {
-                        tryAccommodation: "{keyboard}.model.tryAccommodation",
-                        stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
-                    },
+                    // model: {
+                    //     tryAccommodation: "{keyboard}.model.tryAccommodation",
+                    //     stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
+                    // },
+                    modelRelay: [{
+                        source: "{keyboard}.model.tryAccommodation",
+                        target: "tryAccommodation",
+                        backward: "liveOnly",
+                        singleTransform: {
+                            type: "fluid.transforms.identity"
+                        }
+                    }, {
+                        source: "{keyboard}.model.stickyKeysEnabled",
+                        target: "stickyKeysEnabled",
+                        backward: "liveOnly",
+                        singleTransform: {
+                            type: "fluid.transforms.identity"
+                        }
+                    }],
                     // Need to close the tooltip before the DOM elements are removed
                     listeners: {
                         "{keyboard}.events.onRenderTree": "{that}.tooltip.close"
@@ -954,7 +969,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             that.events.langButtonsReady.fire();
         });
     };
-    
+
 
     gpii.firstDiscovery.panel.lang.scrollLangs = function (that, adjustBy) {
         var newIndex = that.model.viewportFirstLangIndex + adjustBy;
@@ -1011,7 +1026,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
     gpii.firstDiscovery.panel.lang.setLangOnHtml = function (currentLang) {
         $("html").attr("lang", currentLang);
     };
-    
+
     gpii.firstDiscovery.panel.lang.setTooltipLang = function (that, originalTarget, tooltip) {
     	tooltip.attr("lang", $(originalTarget).attr("lang"));
     };
@@ -1021,7 +1036,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
     	$(selected).focus();
     	that.locate("controlsDiv").attr("tabindex", "-1");
     };
-    
+
     gpii.firstDiscovery.panel.lang.setFocusOut = function (that) {
     	that.locate("controlsDiv").attr("tabindex", "0");
     };

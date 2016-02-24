@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             "": "keyboardInputTooltip"  // use "" to select the container
         },
         model: {
-            stickyKeysEnabled: false,
+            // stickyKeysEnabled: false,
             shiftLatched: false,
             userInput: ""
         },
