@@ -258,25 +258,10 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                 container: "{that}.container",
                 options: {
                     messageBase: "{keyboard}.options.messageBase",
-                    // model: {
-                    //     tryAccommodation: "{keyboard}.model.tryAccommodation",
-                    //     stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
-                    // },
-                    modelRelay: [{
-                        source: "{keyboard}.model.tryAccommodation",
-                        target: "tryAccommodation",
-                        backward: "liveOnly",
-                        singleTransform: {
-                            type: "fluid.transforms.identity"
-                        }
-                    }, {
-                        source: "{keyboard}.model.stickyKeysEnabled",
-                        target: "stickyKeysEnabled",
-                        backward: "liveOnly",
-                        singleTransform: {
-                            type: "fluid.transforms.identity"
-                        }
-                    }],
+                    model: {
+                        tryAccommodation: "{keyboard}.model.tryAccommodation",
+                        stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
+                    },
                     // Need to close the tooltip before the DOM elements are removed
                     listeners: {
                         "{keyboard}.events.onRenderTree": "{that}.tooltip.close"
@@ -298,10 +283,25 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                 createOnEvent: "onInitInput",
                 container: "{that}.dom.input",
                 options: {
-                    model: {
-                        userInput: "{keyboard}.model.userInput",
-                        stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
-                    },
+                    // model: {
+                    //     userInput: "{keyboard}.model.userInput",
+                    //     stickyKeysEnabled: "{keyboard}.model.stickyKeysEnabled"
+                    // },
+                    modelRelay: [{
+                        source: "{keyboard}.model.userInput",
+                        target: "userInput",
+                        backward: "liveOnly",
+                        singleTransform: {
+                            type: "fluid.transforms.identity"
+                        }
+                    }, {
+                        source: "{keyboard}.model.stickyKeysEnabled",
+                        target: "stickyKeysEnabled",
+                        backward: "liveOnly",
+                        singleTransform: {
+                            type: "fluid.transforms.identity"
+                        }
+                    }],
                     messageBase: "{keyboard}.options.messageBase"
                 }
             }
